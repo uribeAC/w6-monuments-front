@@ -1,0 +1,9 @@
+.main-container {
+  max-width: 1900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 50px;
+  width: 100vw;
+}

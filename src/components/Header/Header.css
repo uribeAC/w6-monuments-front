@@ -1,0 +1,27 @@
+.main-header {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  margin: 0 auto;
+  align-self: self-start;
+
+  @media (width > 500px) {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  align-self: center;
+  color: var(--principal-color);
+  font-size: 2rem;
+  padding: 0 17px;
+  border-top: 3.5px solid var(--principal-color);
+  border-bottom: 3.5px solid var(--principal-color);
+  text-shadow:
+    1.5px 1.5px 0px #c07121,
+    3px 3px 0px #bb8146,
+    4.5px 4.5px 0px #d29b64;
+}
