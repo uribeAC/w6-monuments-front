@@ -1,0 +1,34 @@
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+
+  @media (width > 500px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.navigation__link {
+  color: var(--principal-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px #00000028;
+  padding: 3px 5px;
+
+  &:hover {
+    color: #4d1600;
+    background-color: #9f550a47;
+    border-radius: 4px;
+  }
+
+  @media (width < 340px) {
+    font-size: 0.9rem;
+  }
+}
+
+.navigation__link--current {
+  text-decoration: underline;
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 3px;
+}
