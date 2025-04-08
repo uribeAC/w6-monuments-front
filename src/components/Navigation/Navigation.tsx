@@ -1,26 +1,19 @@
+import { NavLink } from "react-router";
 import "./Navigation.css";
 
 const Navigation: React.FC = () => {
-  const currentPath = window.location.pathname;
-
   return (
     <nav>
       <ul className="navigation">
         <li>
-          <a
-            className={`navigation__link${currentPath === "/" ? " navigation__link--current" : ""}`}
-            href="/"
-          >
+          <NavLink to="/monuments" className={"navigation__link"}>
             Monuments
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            className={`navigation__link${currentPath === "/add/" ? " navigation__link--current" : ""}`}
-            href="/add/"
-          >
-            Add monument
-          </a>
+          <NavLink to="/add" className={"navigation__link"}>
+            Add Monument
+          </NavLink>
         </li>
       </ul>
     </nav>

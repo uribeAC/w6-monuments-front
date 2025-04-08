@@ -15,7 +15,8 @@
   "dependencies": {
     "@fontsource-variable/lexend": "^5.2.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router": "^7.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",

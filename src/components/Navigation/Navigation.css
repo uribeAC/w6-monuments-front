@@ -27,7 +27,7 @@
   }
 }
 
-.navigation__link--current {
+.active {
   text-decoration: underline;
   text-decoration-thickness: 2.5px;
   text-underline-offset: 3px;
