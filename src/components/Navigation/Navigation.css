@@ -17,13 +17,9 @@
   padding: 3px 5px;
 
   &:hover {
-    color: #4d1600;
-    background-color: #9f550a47;
+    color: #fff;
+    background-color: #100056bb;
     border-radius: 4px;
-  }
-
-  @media (width < 340px) {
-    font-size: 0.9rem;
   }
 }
 
