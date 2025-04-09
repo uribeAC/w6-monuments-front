@@ -11,7 +11,7 @@ describe("Given the Header component", () => {
         </MemoryRouter>,
       );
 
-      const appTitle = screen.queryByRole("heading", {
+      const appTitle = screen.getByRole("heading", {
         name: /monuments/i,
         level: 1,
       });
@@ -26,10 +26,10 @@ describe("Given the Header component", () => {
         </MemoryRouter>,
       );
 
-      const monumentsPageLink = screen.queryByRole("link", {
+      const monumentsPageLink = screen.getByRole("link", {
         name: /monuments/i,
       });
-      const addMonumentPageLink = screen.queryByRole("link", {
+      const addMonumentPageLink = screen.getByRole("link", {
         name: /add monument/i,
       });
 
