@@ -1,9 +1,8 @@
-export type Monument = {
+export type MonumentDto = {
   id: string;
   name: string;
   description: string;
   imageUrl: string;
-  alternativeText: string;
   country: string;
   city: string;
 };
