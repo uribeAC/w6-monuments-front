@@ -5,24 +5,26 @@ interface MonumentCardProps {
   monument: Monument;
 }
 
-const MonumentCard: React.FC<MonumentCardProps> = ({ monument }) => {
+const MonumentCard: React.FC<MonumentCardProps> = ({
+  monument: { name, description, imageUrl, alternativeText, city, country },
+}) => {
   return (
     <article className="monument">
       <div className="monument__photo">
-        <div className="image-overlay"></div>
+        <div className="monument__photo-overlay"></div>
+        <p className="monument__description">{description}</p>
         <img
           className="monument__image"
-          src={monument.imageUrl}
-          alt={`Monument: ${monument.name}`}
+          src={imageUrl}
+          alt={alternativeText}
           width={250}
           height={500}
         />
-        <p className="monument__description">{monument.description}</p>
       </div>
       <div className="monument__data">
-        <h2 className="monument__data-name">{monument.name}</h2>
+        <h2 className="monument__data-name">{name}</h2>
         <span className="monument__data-location">
-          {monument.country}, {monument.city}
+          {country}, {city}
         </span>
       </div>
     </article>
