@@ -6,13 +6,14 @@
   align-items: center;
   padding-top: 100px;
 
+  &:hover {
+    animation: glitch 0.4s linear infinite;
+  }
+
   @media (prefers-reduced-motion) {
     &:hover {
       animation: none;
     }
-  }
-  &:hover {
-    animation: glitch 0.4s linear infinite;
   }
 }
 

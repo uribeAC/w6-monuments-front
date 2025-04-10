@@ -5,7 +5,7 @@ const NotFoundPage: React.FC = () => {
   return (
     <div className="not-found">
       <img
-        src="public/ruins-icon.png"
+        src="/ruins-icon.png"
         alt="monument ruins icon"
         width={350}
         height={350}
