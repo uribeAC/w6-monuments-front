@@ -15,6 +15,7 @@ const MonumentCard: React.FC<MonumentCardProps> = ({ monument }) => {
           src={monument.imageUrl}
           alt={`Monument: ${monument.name}`}
           width={250}
+          height={500}
         />
         <p className="monument__description">{monument.description}</p>
       </div>
