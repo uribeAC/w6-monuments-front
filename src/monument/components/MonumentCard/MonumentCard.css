@@ -1,0 +1,53 @@
+.monument {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.monument__photo {
+  position: relative;
+}
+
+.monument__photo-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+
+.monument__image {
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0px 0px 5px 1px #00000029;
+}
+
+.monument__description {
+  text-wrap-style: balance;
+  text-align: center;
+  color: #fff;
+  bottom: 0px;
+  padding: 10px;
+  position: absolute;
+  font-size: 0.9rem;
+}
+
+.monument__data {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.monument__data-name {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.monument__data-location {
+  font-size: 1rem;
+  text-align: end;
+  padding-right: 8px;
+}
