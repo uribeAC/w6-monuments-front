@@ -1,8 +1,3 @@
-export type MonumentDto = {
-  id: string;
-  name: string;
-  description: string;
-  imageUrl: string;
-  country: string;
-  city: string;
-};
+import { Monument } from "../types";
+
+export type MonumentDto = Omit<Monument, "alternativeText">;
