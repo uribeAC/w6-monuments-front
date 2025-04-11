@@ -1,0 +1,6 @@
+.page-title {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  align-self: center;
+  color: var(--principal-color);
+}
