@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MonumentList from "../../components/MonumentList/MonumentList";
-import MonumentClient from "../../client/MonumentClient";
-import { Monument } from "../../types";
+import useMonuments from "../../hooks/useMonuments";
 
 const MonumentsPage: React.FC = () => {
-  const [monuments, setMonuments] = useState<Monument[]>([]);
+  const { monuments, loadMonuments } = useMonuments();
 
   useEffect(() => {
-    (async () => {
-      const monumentClient = new MonumentClient();
-      const apiMonuments = await monumentClient.getMonuments();
-
-      setMonuments(apiMonuments);
-    })();
-  }, []);
+    loadMonuments();
+  }, [loadMonuments]);
 
   return <MonumentList monuments={monuments} />;
 };
