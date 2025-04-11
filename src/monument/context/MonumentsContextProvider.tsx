@@ -1,4 +1,9 @@
-import React, { PropsWithChildren, useCallback, useState } from "react";
+import React, {
+  PropsWithChildren,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import MonumentsContextStructure from "./types";
 import MonumentsContext from "./MonumentsContext";
 import { Monument } from "../types";
@@ -9,12 +14,13 @@ const MonumentsContextProvider: React.FC<PropsWithChildren> = ({
 }) => {
   const [monuments, setMonuments] = useState<Monument[]>([]);
 
+  const monumentClient = useMemo(() => new MonumentClient(), []);
+
   const loadMonuments = useCallback(async (): Promise<void> => {
-    const monumentClient = new MonumentClient();
     const apiMonuments = await monumentClient.getMonuments();
 
     setMonuments(apiMonuments);
-  }, []);
+  }, [monumentClient]);
 
   const monumentsContextValue: MonumentsContextStructure = {
     monuments,
