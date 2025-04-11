@@ -1,0 +1,76 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 3px solid var(--principal-color);
+  gap: 15px;
+  box-shadow: 0px 0px 5px 1px #00000029;
+}
+
+.form-title {
+  font-size: 1.2rem;
+}
+
+.monument-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.monument-form__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.monument-form__text {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.monument-form__control {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid var(--principal-color);
+
+  &:focus {
+    outline: 2px solid var(--principal-color);
+    border-radius: 5px;
+    background-color: #b0d5ee;
+  }
+
+  &:active {
+    transition: 0.1s;
+    scale: 1.01;
+  }
+}
+
+.monument-form__button {
+  padding: 10px;
+  align-self: flex-end;
+  border-radius: 5px;
+  box-shadow:
+    1.5px 1.5px 0px #bebebe,
+    3px 3px 0px #5e5e5e,
+    4.5px 4.5px 0px #000000;
+
+  &:focus {
+    background-color: #b0d5ee;
+  }
+
+  &:hover {
+    background-color: var(--principal-color);
+    color: #fff;
+  }
+
+  &:active {
+    transition: 0.1s;
+    scale: 1.01;
+  }
+}
