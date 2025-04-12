@@ -24,9 +24,13 @@ class MonumentClient implements MonumentClientStructure {
 
     const response = await fetch(`${apiUrl}/monuments/add`, {
       method: "POST",
-      headers: { contentType: "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(monumentData),
     });
+
+    if (!response.ok) {
+      throw new Error("Error creating monument");
+    }
 
     const newMonument = (await response.json()) as MonumentDto;
 
