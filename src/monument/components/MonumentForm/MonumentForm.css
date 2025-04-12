@@ -73,4 +73,9 @@
     transition: 0.1s;
     scale: 1.01;
   }
+
+  &:disabled {
+    color: #5e5e5e;
+    cursor: no-drop;
+  }
 }
