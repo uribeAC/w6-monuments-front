@@ -22,10 +22,14 @@ const MonumentsContextProvider: React.FC<PropsWithChildren> = ({
     setMonuments(apiMonuments);
   }, [monumentClient]);
 
-  const createMonument = async (monumentData: MonumentData): Promise<void> => {
+  const createMonument = async (
+    monumentData: MonumentData,
+  ): Promise<Monument> => {
     const newMonument = await monumentClient.addMonument(monumentData);
 
     setMonuments((monuments) => [...monuments, newMonument]);
+
+    return newMonument;
   };
 
   const monumentsContextValue: MonumentsContextStructure = {

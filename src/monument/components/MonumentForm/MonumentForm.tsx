@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { MonumentData } from "../../types";
+import { Monument, MonumentData } from "../../types";
+import { useNavigate } from "react-router";
 import "./MonumentForm.css";
 
 interface MonumentFormProps {
-  action: (monumentData: MonumentData) => Promise<void>;
+  action: (monumentData: MonumentData) => Promise<Monument>;
 }
 
 const MonumentForm: React.FC<MonumentFormProps> = ({ action }) => {
@@ -40,14 +41,37 @@ const MonumentForm: React.FC<MonumentFormProps> = ({ action }) => {
     monumentData.country !== "" &&
     monumentData.city !== "";
 
-  const onSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
+  const navigate = useNavigate();
+
+  const [formTitle, setFormTitle] = useState<string>(
+    "Introduce monument data:",
+  );
+
+  const [formErrorClass, setFormErrorClass] = useState<string>("");
+
+  const onSubmitForm = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     event.preventDefault();
-    action(monumentData);
+    const response = await action(monumentData);
+
+    if (!response.name) {
+      setFormErrorClass(" form-title--error");
+      setFormTitle("Monument already in database");
+
+      setTimeout(() => {
+        setFormErrorClass("");
+        setFormTitle("Introduce a new monument data:");
+      }, 5000);
+      return;
+    }
+
+    navigate("/monuments");
   };
 
   return (
     <div className="form-wrapper">
-      <h2 className="form-title">Introduce monument data:</h2>
+      <h2 className={`form-title${formErrorClass}`}>{formTitle}</h2>
       <form className="monument-form" onSubmit={onSubmitForm}>
         <div className="monument-form__label">
           <label htmlFor="name" className="monument-form__text">
