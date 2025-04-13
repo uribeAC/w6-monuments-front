@@ -12,11 +12,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0) 50%
-  );
+  background: linear-gradient(0deg, #ffffff8e 0%, #ffffff8e 30%, #0000 40%);
 }
 
 .monument__image {
@@ -45,11 +41,11 @@
 .monument__description {
   text-wrap-style: balance;
   text-align: center;
-  color: #fff;
+  color: #000000;
   bottom: 0px;
   padding: 10px;
   position: absolute;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .monument__data {
