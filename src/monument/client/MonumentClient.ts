@@ -1,6 +1,9 @@
-import { mapMonumentsDtoToMonuments } from "../dto/transformers";
+import {
+  mapMonumentDtoToMonument,
+  mapMonumentsDtoToMonuments,
+} from "../dto/transformers";
 import { MonumentDto } from "../dto/types";
-import { Monument } from "../types";
+import { Monument, MonumentData } from "../types";
 import { MonumentClientStructure } from "./types";
 
 class MonumentClient implements MonumentClientStructure {
@@ -14,6 +17,24 @@ class MonumentClient implements MonumentClientStructure {
     };
 
     return mapMonumentsDtoToMonuments(monuments);
+  }
+
+  public async addMonument(monumentData: MonumentData): Promise<Monument> {
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    const response = await fetch(`${apiUrl}/monuments/add`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(monumentData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error creating monument");
+    }
+
+    const newMonument = (await response.json()) as MonumentDto;
+
+    return mapMonumentDtoToMonument(newMonument);
   }
 }
 

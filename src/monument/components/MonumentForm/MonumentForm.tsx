@@ -3,10 +3,10 @@ import { MonumentData } from "../../types";
 import "./MonumentForm.css";
 
 interface MonumentFormProps {
-  action: () => void;
+  action: (monumentData: MonumentData) => Promise<void>;
 }
 
-const MonumentForm: React.FC<MonumentFormProps> = ({ action: action }) => {
+const MonumentForm: React.FC<MonumentFormProps> = ({ action }) => {
   const initialMonumentData: MonumentData = {
     name: "",
     description: "",
@@ -42,7 +42,7 @@ const MonumentForm: React.FC<MonumentFormProps> = ({ action: action }) => {
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    action();
+    action(monumentData);
   };
 
   return (

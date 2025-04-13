@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import MonumentsContextStructure from "./types";
 import MonumentsContext from "./MonumentsContext";
-import { Monument } from "../types";
+import { Monument, MonumentData } from "../types";
 import MonumentClient from "../client/MonumentClient";
 
 const MonumentsContextProvider: React.FC<PropsWithChildren> = ({
@@ -22,9 +22,16 @@ const MonumentsContextProvider: React.FC<PropsWithChildren> = ({
     setMonuments(apiMonuments);
   }, [monumentClient]);
 
+  const createMonument = async (monumentData: MonumentData): Promise<void> => {
+    const newMonument = await monumentClient.addMonument(monumentData);
+
+    setMonuments((monuments) => [...monuments, newMonument]);
+  };
+
   const monumentsContextValue: MonumentsContextStructure = {
     monuments,
     loadMonuments,
+    createMonument,
   };
 
   return (
