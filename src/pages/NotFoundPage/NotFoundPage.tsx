@@ -7,8 +7,9 @@ const NotFoundPage: React.FC = () => {
       <img
         src="/ruins-icon.png"
         alt="monument ruins icon"
-        width={350}
-        height={350}
+        width={270}
+        height={270}
+        className="not-found__image"
       />
       <h2>Page not found</h2>
       <span>ERROR 404</span>
