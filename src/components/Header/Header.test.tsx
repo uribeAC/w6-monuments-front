@@ -5,11 +5,7 @@ import { MemoryRouter } from "react-router";
 describe("Given the Header component", () => {
   describe("When it renders", () => {
     test("Then it should show 'Monuments' inside a level 1 heading", () => {
-      render(
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>,
-      );
+      render(<Header />, { wrapper: MemoryRouter });
 
       const appTitle = screen.getByRole("heading", {
         name: /monuments/i,

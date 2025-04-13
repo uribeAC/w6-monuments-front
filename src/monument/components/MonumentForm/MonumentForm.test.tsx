@@ -16,11 +16,10 @@ describe("Given the MonumentForm component", () => {
   describe("When it renders", () => {
     test("Then it should show 'Introduce monument data' inside a heading", () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const formTitle = screen.getByRole("heading", {
@@ -32,11 +31,10 @@ describe("Given the MonumentForm component", () => {
 
     test("Then it should show a 'Name' text box", () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const nameTextBox = screen.getByLabelText(/name/i);
@@ -46,11 +44,10 @@ describe("Given the MonumentForm component", () => {
 
     test("Then it should show a 'Description' text box", () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const descriptionTextBox = screen.getByLabelText(/description/i);
@@ -60,11 +57,10 @@ describe("Given the MonumentForm component", () => {
 
     test("Then it should show 'Register' inside a button", () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const registerButton = screen.getByRole("button", { name: /register/i });
@@ -74,11 +70,10 @@ describe("Given the MonumentForm component", () => {
 
     test("Then it should show a 'Register' button disabled", () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const registerButton = screen.getByRole("button", { name: /register/i });
@@ -90,11 +85,10 @@ describe("Given the MonumentForm component", () => {
   describe("And the user types 'Phra Pathom Chedi' in 'Name' text box", () => {
     test("Then it should show 'Phra Pathom Chedi' in 'Name' text box", async () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const nameTextBox = screen.getByLabelText(/name/i);
@@ -108,11 +102,10 @@ describe("Given the MonumentForm component", () => {
   describe("And receives an action and the user submits the form", () => {
     test("Then it should call the recevied action", async () => {
       render(
-        <MonumentsContextProvider>
-          <MemoryRouter>
-            <MonumentForm action={action} />
-          </MemoryRouter>
-        </MonumentsContextProvider>,
+        <MemoryRouter>
+          <MonumentForm action={action} />
+        </MemoryRouter>,
+        { wrapper: MonumentsContextProvider },
       );
 
       const nameTextBox = screen.getByLabelText(/name/i);

@@ -5,11 +5,7 @@ import { MemoryRouter } from "react-router";
 describe("Given the Navigation component", () => {
   describe("When it renders", () => {
     test("Then it should show a 'Monuments' link and a 'Add Monument' link", () => {
-      render(
-        <MemoryRouter>
-          <Navigation />
-        </MemoryRouter>,
-      );
+      render(<Navigation />, { wrapper: MemoryRouter });
 
       const monumentsPageLink = screen.getByRole("link", {
         name: /monuments/i,
