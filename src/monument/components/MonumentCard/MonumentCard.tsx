@@ -1,3 +1,4 @@
+import useMonuments from "../../hooks/useMonuments";
 import { Monument } from "../../types";
 import "./MonumentCard.css";
 
@@ -6,13 +7,20 @@ interface MonumentCardProps {
 }
 
 const MonumentCard: React.FC<MonumentCardProps> = ({
-  monument: { name, description, imageUrl, alternativeText, city, country },
+  monument: { id, name, description, imageUrl, alternativeText, city, country },
 }) => {
+  const { deleteMonumentById } = useMonuments();
+
   return (
     <article className="monument">
       <div className="monument__photo">
         <div className="monument__photo-overlay"></div>
-        <button className="monument__delete-button">X</button>
+        <button
+          className="monument__delete-button"
+          onClick={() => deleteMonumentById(id)}
+        >
+          X
+        </button>
         <p className="monument__description">{description}</p>
         <img
           className="monument__image"

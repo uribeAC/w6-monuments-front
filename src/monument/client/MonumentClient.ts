@@ -7,10 +7,10 @@ import { Monument, MonumentData } from "../types";
 import { MonumentClientStructure } from "./types";
 
 class MonumentClient implements MonumentClientStructure {
-  public async getMonuments(): Promise<Monument[]> {
-    const apiUrl = import.meta.env.VITE_API_URL;
+  private apiUrl = import.meta.env.VITE_API_URL;
 
-    const response = await fetch(`${apiUrl}/monuments`);
+  public async getMonuments(): Promise<Monument[]> {
+    const response = await fetch(`${this.apiUrl}/monuments`);
 
     const { monuments } = (await response.json()) as {
       monuments: MonumentDto[];
@@ -20,9 +20,7 @@ class MonumentClient implements MonumentClientStructure {
   }
 
   public async addMonument(monumentData: MonumentData): Promise<Monument> {
-    const apiUrl = import.meta.env.VITE_API_URL;
-
-    const response = await fetch(`${apiUrl}/monuments/add`, {
+    const response = await fetch(`${this.apiUrl}/monuments/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(monumentData),
@@ -31,6 +29,17 @@ class MonumentClient implements MonumentClientStructure {
     const newMonument = (await response.json()) as MonumentDto;
 
     return mapMonumentDtoToMonument(newMonument);
+  }
+
+  public async deleteMonument(monumentId: string): Promise<Monument> {
+    const response = await fetch(`${this.apiUrl}/monuments/${monumentId}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const deletedMonument = (await response.json()) as MonumentDto;
+
+    return mapMonumentDtoToMonument(deletedMonument);
   }
 }
 

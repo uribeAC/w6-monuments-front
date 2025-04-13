@@ -1,11 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import MonumentList from "./MonumentList";
 import { himejiCastle, sensojiTemple } from "../../fixtures";
+import MonumentsContextProvider from "../../context/MonumentsContextProvider";
 
 describe("Given the MonumentsList component", () => {
   describe("When it receives Senso-ji Temple and Himeji Castle", () => {
     test("Then it should show the names of Senso-ji Temple and Himeji Castle inside a heading", () => {
-      render(<MonumentList monuments={[sensojiTemple, himejiCastle]} />);
+      render(<MonumentList monuments={[sensojiTemple, himejiCastle]} />, {
+        wrapper: MonumentsContextProvider,
+      });
 
       const sensojiName = screen.getByRole("heading", {
         name: sensojiTemple.name,
