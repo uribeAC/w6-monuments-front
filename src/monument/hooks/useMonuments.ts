@@ -6,7 +6,7 @@ const useMonuments = (): MonumentsContextStructure => {
   const context = useContext(MonumentsContext);
 
   if (!context) {
-    throw new Error("Missing provider for MonumentsContext");
+    throw new Error("Missing context for Monuments provider");
   }
 
   return context;

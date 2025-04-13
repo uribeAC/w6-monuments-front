@@ -1,10 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import MonumentForm from "./MonumentForm";
+import { MemoryRouter } from "react-router";
+import MonumentsContextProvider from "../../context/MonumentsContextProvider";
 
 describe("Given the MonumentForm component", () => {
   describe("When it renders", () => {
     test("Then it should show 'Introduce monument data' inside a heading", () => {
-      render(<MonumentForm action={() => {}} />);
+      render(
+        <MonumentsContextProvider>
+          <MemoryRouter>
+            <MonumentForm />
+          </MemoryRouter>
+        </MonumentsContextProvider>,
+      );
 
       const formTitle = screen.getByRole("heading", {
         name: /introduce monument data/i,
@@ -14,7 +22,13 @@ describe("Given the MonumentForm component", () => {
     });
 
     test("Then it should show an input for Name", () => {
-      render(<MonumentForm action={() => {}} />);
+      render(
+        <MonumentsContextProvider>
+          <MemoryRouter>
+            <MonumentForm />
+          </MemoryRouter>
+        </MonumentsContextProvider>,
+      );
 
       const inputName = screen.getByLabelText(/name/i);
 
@@ -22,7 +36,13 @@ describe("Given the MonumentForm component", () => {
     });
 
     test("Then it should show an input for Description", () => {
-      render(<MonumentForm action={() => {}} />);
+      render(
+        <MonumentsContextProvider>
+          <MemoryRouter>
+            <MonumentForm />
+          </MemoryRouter>
+        </MonumentsContextProvider>,
+      );
 
       const inputDescription = screen.getByLabelText(/description/i);
 
@@ -30,7 +50,13 @@ describe("Given the MonumentForm component", () => {
     });
 
     test("Then it should 'Register' inside a button", () => {
-      render(<MonumentForm action={() => {}} />);
+      render(
+        <MonumentsContextProvider>
+          <MemoryRouter>
+            <MonumentForm />
+          </MemoryRouter>
+        </MonumentsContextProvider>,
+      );
 
       const buttonText = screen.getByRole("button", { name: /register/i });
 

@@ -6,7 +6,7 @@ const AddMonumentPage: React.FC = () => {
   return (
     <>
       <h2 className="page-title">Add monument</h2>
-      <MonumentForm action={() => {}} />
+      <MonumentForm />
     </>
   );
 };
