@@ -12,6 +12,7 @@ const MonumentCard: React.FC<MonumentCardProps> = ({
     <article className="monument">
       <div className="monument__photo">
         <div className="monument__photo-overlay"></div>
+        <button className="monument__delete-button">X</button>
         <p className="monument__description">{description}</p>
         <img
           className="monument__image"
