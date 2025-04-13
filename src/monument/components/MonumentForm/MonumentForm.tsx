@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MonumentData } from "../../types";
 import "./MonumentForm.css";
+import { useNavigate } from "react-router";
 
 interface MonumentFormProps {
   action: (monumentData: MonumentData) => Promise<void>;
@@ -40,9 +41,12 @@ const MonumentForm: React.FC<MonumentFormProps> = ({ action }) => {
     monumentData.country !== "" &&
     monumentData.city !== "";
 
+  const navigate = useNavigate();
+
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     action(monumentData);
+    navigate("/monuments");
   };
 
   return (
