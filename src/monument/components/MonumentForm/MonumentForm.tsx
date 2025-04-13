@@ -43,18 +43,35 @@ const MonumentForm: React.FC<MonumentFormProps> = ({ action }) => {
 
   const navigate = useNavigate();
 
+  const [formTitle, setFormTitle] = useState<string>(
+    "Introduce monument data:",
+  );
+
+  const [formErrorClass, setFormErrorClass] = useState<string>("");
+
   const onSubmitForm = async (
     event: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
     event.preventDefault();
-    await action(monumentData);
+    const response = await action(monumentData);
+
+    if (!response.name) {
+      setFormErrorClass(" form-title--error");
+      setFormTitle("Monument already in database");
+
+      setTimeout(() => {
+        setFormErrorClass("");
+        setFormTitle("Introduce a new monument data:");
+      }, 5000);
+      return;
+    }
 
     navigate("/monuments");
   };
 
   return (
     <div className="form-wrapper">
-      <h2 className="form-title">Introduce monument data:</h2>
+      <h2 className={`form-title${formErrorClass}`}>{formTitle}</h2>
       <form className="monument-form" onSubmit={onSubmitForm}>
         <div className="monument-form__label">
           <label htmlFor="name" className="monument-form__text">

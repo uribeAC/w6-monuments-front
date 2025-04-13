@@ -28,10 +28,6 @@ class MonumentClient implements MonumentClientStructure {
       body: JSON.stringify(monumentData),
     });
 
-    if (!response.ok) {
-      throw new Error("Error creating monument");
-    }
-
     const newMonument = (await response.json()) as MonumentDto;
 
     return mapMonumentDtoToMonument(newMonument);
