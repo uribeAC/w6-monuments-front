@@ -50,6 +50,7 @@ textarea {
 
 button {
   font: inherit;
+  background: none;
   cursor: pointer;
   outline: none;
   border: none;
