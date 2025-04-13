@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { MonumentData } from "../../types";
 import "./MonumentForm.css";
-import useMonuments from "../../hooks/useMonuments";
 
-const MonumentForm: React.FC = () => {
-  const { createMonument } = useMonuments();
+interface MonumentFormProps {
+  action: (monumentData: MonumentData) => Promise<void>;
+}
 
+const MonumentForm: React.FC<MonumentFormProps> = ({ action }) => {
   const initialMonumentData: MonumentData = {
     name: "",
     description: "",
@@ -41,7 +42,7 @@ const MonumentForm: React.FC = () => {
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    createMonument(monumentData);
+    action(monumentData);
   };
 
   return (

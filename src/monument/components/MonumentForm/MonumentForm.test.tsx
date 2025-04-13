@@ -5,11 +5,13 @@ import MonumentsContextProvider from "../../context/MonumentsContextProvider";
 
 describe("Given the MonumentForm component", () => {
   describe("When it renders", () => {
+    const action = vitest.fn();
+
     test("Then it should show 'Introduce monument data' inside a heading", () => {
       render(
         <MonumentsContextProvider>
           <MemoryRouter>
-            <MonumentForm />
+            <MonumentForm action={action} />
           </MemoryRouter>
         </MonumentsContextProvider>,
       );
@@ -25,7 +27,7 @@ describe("Given the MonumentForm component", () => {
       render(
         <MonumentsContextProvider>
           <MemoryRouter>
-            <MonumentForm />
+            <MonumentForm action={action} />
           </MemoryRouter>
         </MonumentsContextProvider>,
       );
@@ -39,7 +41,7 @@ describe("Given the MonumentForm component", () => {
       render(
         <MonumentsContextProvider>
           <MemoryRouter>
-            <MonumentForm />
+            <MonumentForm action={action} />
           </MemoryRouter>
         </MonumentsContextProvider>,
       );
@@ -53,7 +55,7 @@ describe("Given the MonumentForm component", () => {
       render(
         <MonumentsContextProvider>
           <MemoryRouter>
-            <MonumentForm />
+            <MonumentForm action={action} />
           </MemoryRouter>
         </MonumentsContextProvider>,
       );
